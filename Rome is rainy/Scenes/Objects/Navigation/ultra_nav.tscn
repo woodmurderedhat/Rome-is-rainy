@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dego762iape1t"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/Navigation/UltraNav.gd" id="1_oi67l"]
+
+[node name="UltraNav" type="NavigationAgent2D"]
+path_max_distance = 25.0
+avoidance_enabled = true
+script = ExtResource("1_oi67l")

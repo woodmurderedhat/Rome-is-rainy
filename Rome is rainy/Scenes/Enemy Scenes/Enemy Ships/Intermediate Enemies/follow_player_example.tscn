@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dau4ogh6ftaac"]
+
+[ext_resource type="PackedScene" uid="uid://bxuxvmut7ohr2" path="res://Scenes/Enemy Scenes/Enemy Ships/Intermediate Enemies/ai_entity.tscn" id="1_i2bjw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ai_entity" parent="." instance=ExtResource("1_i2bjw")]

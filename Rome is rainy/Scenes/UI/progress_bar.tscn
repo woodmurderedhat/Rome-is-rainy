@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://n24sa1nydt6s"]
+
+[ext_resource type="Script" path="res://Scenes/Enemy Scenes/Enemy Ships/ProgressBar.gd" id="1_4u1lc"]
+
+[node name="ProgressBar" type="ProgressBar"]
+offset_top = -45.0
+offset_right = 4.0
+offset_bottom = -18.0
+script = ExtResource("1_4u1lc")

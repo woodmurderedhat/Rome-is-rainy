@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://djbdrswc4d53k"]
+
+[ext_resource type="Script" path="res://Scenes/Enemy Scenes/Enemy Ships/Basic Enemies/enemy_car_alpha.gd" id="1_aadqi"]
+[ext_resource type="Texture2D" uid="uid://bgaqae2sx4gj1" path="res://Sprite Assets/Ships/RACESHIP1.png" id="2_qu0ym"]
+[ext_resource type="PackedScene" uid="uid://n24sa1nydt6s" path="res://Scenes/UI/progress_bar.tscn" id="3_plw11"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uawlj"]
+size = Vector2(12, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmvwe"]
+size = Vector2(14, 34)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rcq2u"]
+
+[node name="EnemyCarAlpha" type="RigidBody2D" groups=["scorable"]]
+mass = 1200.0
+linear_velocity = Vector2(10, 0)
+angular_velocity = 17.4533
+script = ExtResource("1_aadqi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qu0ym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uawlj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_cmvwe")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -36)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-5, 16)
+direction = Vector2(0, 0)
+spread = 70.54
+gravity = Vector2(0, 0)
+color = Color(0, 0.858824, 1, 1)
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(5, 16)
+direction = Vector2(0, 0)
+spread = 70.54
+gravity = Vector2(0, 0)
+color = Color(0, 0.858824, 1, 1)
+
+[node name="igniteparticle" type="CPUParticles2D" parent="."]
+position = Vector2(0, 16)
+rotation = 1.55946
+emitting = false
+amount = 16
+explosiveness = 1.0
+randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 0)
+spread = 21.89
+gravity = Vector2(0, 0)
+initial_velocity_max = 256.75
+angular_velocity_max = 252.97
+color = Color(1, 0, 0, 1)
+
+[node name="FrontRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -24)
+target_position = Vector2(0, -50)
+
+[node name="LeftRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -20)
+target_position = Vector2(-50, 0)
+
+[node name="RightRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -20)
+target_position = Vector2(50, 0)
+
+[node name="BackRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 20)
+
+[node name="SensePerception" type="Area2D" parent="."]
+scale = Vector2(0.839998, 0.76)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SensePerception"]
+scale = Vector2(7.44, 8.4)
+shape = SubResource("CircleShape2D_rcq2u")
+
+[node name="ProgressBar" parent="." instance=ExtResource("3_plw11")]
+offset_left = 1.0
+offset_top = -42.0
+offset_right = 5.0
+offset_bottom = -15.0
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="SensePerception" to="." method="_on_sense_perception_body_entered"]
+[connection signal="body_exited" from="SensePerception" to="." method="_on_sense_perception_body_exited"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu4fnx7uc52fg"]
+
+[ext_resource type="Texture2D" uid="uid://6qig5vxam3fl" path="res://Sprite Assets/bullets/bulletredpink.png" id="1_2fvtm"]
+[ext_resource type="Script" path="res://Scenes/Objects/Bulleets/bullet_death.gd" id="2_4wv7w"]
+
+[node name="bulletdeath" type="CPUParticles2D"]
+modulate = Color(1, 1, 1, 0.239216)
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+texture = ExtResource("1_2fvtm")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 1000.0
+angular_velocity_max = 720.0
+tangential_accel_max = 54.05
+angle_max = 720.0
+color = Color(1, 0, 0, 1)
+script = ExtResource("2_4wv7w")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

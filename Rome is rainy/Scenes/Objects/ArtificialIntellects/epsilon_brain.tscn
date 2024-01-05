@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk4oireesxicj"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/ArtificialIntellects/epsilon_brain.gd" id="1_8u6uq"]
+[ext_resource type="Script" path="res://Scenes/Objects/ArtificialIntellects/Eyes.gd" id="2_ehy2i"]
+
+[node name="EpsilonBrain" type="Node2D"]
+script = ExtResource("1_8u6uq")
+
+[node name="Eyes" type="Node2D" parent="."]
+script = ExtResource("2_ehy2i")
+
+[node name="FrontRayCast2D" type="RayCast2D" parent="Eyes"]
+position = Vector2(0, -24)
+target_position = Vector2(0, -22)
+
+[node name="LeftRayCast2D" type="RayCast2D" parent="Eyes"]
+position = Vector2(0, -20)
+target_position = Vector2(-18, 0)
+
+[node name="RightRayCast2D" type="RayCast2D" parent="Eyes"]
+position = Vector2(0, -20)
+target_position = Vector2(18, 0)
+
+[node name="BackRayCast2D" type="RayCast2D" parent="Eyes"]
+position = Vector2(0, 20)
+target_position = Vector2(0, 18)

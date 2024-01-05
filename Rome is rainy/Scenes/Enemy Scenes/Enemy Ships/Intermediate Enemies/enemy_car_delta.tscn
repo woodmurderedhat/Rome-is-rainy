@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcepp5drh8rav"]
+
+[ext_resource type="Script" path="res://Scenes/Enemy Scenes/Enemy Ships/Intermediate Enemies/enemy_car_delta.gd" id="1_ts08y"]
+[ext_resource type="Texture2D" uid="uid://bgaqae2sx4gj1" path="res://Sprite Assets/Ships/RACESHIP1.png" id="2_iv6h2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwess"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3sb5n"]
+radius = 116.069
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xl6n"]
+size = Vector2(20, 125)
+
+[node name="EnemyCarDelta" type="RigidBody2D" groups=["scorable"]]
+script = ExtResource("1_ts08y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_iv6h2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_rwess")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -36)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-5, 16)
+direction = Vector2(0, 0)
+spread = 70.54
+gravity = Vector2(0, 0)
+color = Color(0, 0.858824, 1, 1)
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(5, 16)
+direction = Vector2(0, 0)
+spread = 70.54
+gravity = Vector2(0, 0)
+color = Color(0, 0.858824, 1, 1)
+
+[node name="igniteparticle" type="CPUParticles2D" parent="."]
+position = Vector2(0, 16)
+rotation = 1.55946
+emitting = false
+amount = 16
+explosiveness = 1.0
+randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 0)
+spread = 21.89
+gravity = Vector2(0, 0)
+initial_velocity_max = 256.75
+angular_velocity_max = 252.97
+color = Color(1, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_3sb5n")
+
+[node name="FrontRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -24)
+target_position = Vector2(0, -22)
+
+[node name="LeftRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -20)
+target_position = Vector2(-18, 0)
+
+[node name="RightRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -20)
+target_position = Vector2(18, 0)
+
+[node name="BackRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 20)
+target_position = Vector2(0, 18)
+
+[node name="ShootArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootArea"]
+position = Vector2(0, -52.5)
+shape = SubResource("RectangleShape2D_3xl6n")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="ShootArea" to="." method="_on_shoot_area_body_entered"]
