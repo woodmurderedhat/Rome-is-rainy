@@ -1,16 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://cd64nycfg0hxh"]
+[gd_scene load_steps=7 format=3 uid="uid://cd64nycfg0hxh"]
 
 [ext_resource type="Script" path="res://Scenes/Player Scenes/Car Alpha/player_car_alpha.gd" id="1_x5xji"]
 [ext_resource type="Texture2D" uid="uid://bgaqae2sx4gj1" path="res://Sprite Assets/Ships/RACESHIP1.png" id="2_3nf02"]
 [ext_resource type="PackedScene" uid="uid://54ww1hgowsxn" path="res://Scenes/Player Scenes/player_camera_2d.tscn" id="2_no3jb"]
-[ext_resource type="PackedScene" uid="uid://n24sa1nydt6s" path="res://Scenes/UI/progress_bar.tscn" id="3_xcoxa"]
 [ext_resource type="PackedScene" uid="uid://chrah5ampsxwp" path="res://Scenes/Objects/Stats/stats.tscn" id="5_7sjul"]
 [ext_resource type="PackedScene" uid="uid://biirprfvgh5j5" path="res://Scenes/Objects/Guns/machine_gun.tscn" id="6_owian"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uawlj"]
 size = Vector2(12, 32)
 
-[node name="PlayerCarAlpha" type="RigidBody2D" groups=["scorable"]]
+[node name="PlayerCarAlpha" type="RigidBody2D" groups=["Ship"]]
 script = ExtResource("1_x5xji")
 
 [node name="PlayerCamera2D" parent="." instance=ExtResource("2_no3jb")]
@@ -38,12 +37,6 @@ angular_velocity_max = 252.97
 color = Color(1, 0, 0, 1)
 
 [node name="Stats" parent="." instance=ExtResource("5_7sjul")]
-
-[node name="ProgressBar" parent="Stats" instance=ExtResource("3_xcoxa")]
-offset_left = -1.0
-offset_top = -43.0
-offset_right = 3.0
-offset_bottom = -16.0
 
 [node name="MachineGun" parent="." instance=ExtResource("6_owian")]
 position = Vector2(0, -18)

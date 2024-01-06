@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://tqkmivib7yri"]
+[gd_scene load_steps=5 format=3 uid="uid://tqkmivib7yri"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy Scenes/Enemy Ships/Epsilon/epsilon.gd" id="1_hgfr4"]
 [ext_resource type="Texture2D" uid="uid://bgaqae2sx4gj1" path="res://Sprite Assets/Ships/RACESHIP1.png" id="1_r7dhy"]
+[ext_resource type="PackedScene" uid="uid://biirprfvgh5j5" path="res://Scenes/Objects/Guns/machine_gun.tscn" id="3_u5qnl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cdspd"]
 radius = 6.0
 height = 32.0
 
-[node name="Epsilon" type="RigidBody2D"]
+[node name="Epsilon" type="RigidBody2D" groups=["Ship"]]
 script = ExtResource("1_hgfr4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,3 +16,6 @@ texture = ExtResource("1_r7dhy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_cdspd")
+
+[node name="MachineGun" parent="." instance=ExtResource("3_u5qnl")]
+position = Vector2(0, -18)

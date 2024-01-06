@@ -5,4 +5,5 @@
 [node name="UltraNav" type="NavigationAgent2D"]
 path_max_distance = 25.0
 avoidance_enabled = true
+debug_enabled = true
 script = ExtResource("1_oi67l")

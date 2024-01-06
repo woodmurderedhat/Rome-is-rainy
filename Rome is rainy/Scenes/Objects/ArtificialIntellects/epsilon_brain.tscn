@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bk4oireesxicj"]
+[gd_scene load_steps=4 format=3 uid="uid://bk4oireesxicj"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/ArtificialIntellects/epsilon_brain.gd" id="1_8u6uq"]
 [ext_resource type="Script" path="res://Scenes/Objects/ArtificialIntellects/Eyes.gd" id="2_ehy2i"]
+[ext_resource type="PackedScene" uid="uid://dego762iape1t" path="res://Scenes/Objects/Navigation/ultra_nav.tscn" id="3_m2816"]
 
 [node name="EpsilonBrain" type="Node2D"]
 script = ExtResource("1_8u6uq")
@@ -24,3 +25,6 @@ target_position = Vector2(18, 0)
 [node name="BackRayCast2D" type="RayCast2D" parent="Eyes"]
 position = Vector2(0, 20)
 target_position = Vector2(0, 18)
+
+[node name="UltraNav" parent="." instance=ExtResource("3_m2816")]
+debug_enabled = false

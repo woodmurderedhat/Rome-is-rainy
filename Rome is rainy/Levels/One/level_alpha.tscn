@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://wfouyy8d3mxp"]
+[gd_scene load_steps=10 format=3 uid="uid://wfouyy8d3mxp"]
 
 [ext_resource type="Texture2D" uid="uid://b33mf81yc5mbm" path="res://Sprite Assets/Sprite Sheets/WATER SPRITESHEET.png" id="1_3dkyg"]
 [ext_resource type="PackedScene" uid="uid://cd64nycfg0hxh" path="res://Scenes/Player Scenes/Car Alpha/player_car_alpha.tscn" id="1_irglr"]
-[ext_resource type="PackedScene" uid="uid://bcepp5drh8rav" path="res://Scenes/Enemy Scenes/Enemy Ships/Intermediate Enemies/enemy_car_delta.tscn" id="4_0i5oh"]
+[ext_resource type="PackedScene" uid="uid://5nqjq7mfqi73" path="res://Scenes/Objects/Docks/brown_dock.tscn" id="5_osmdg"]
 [ext_resource type="PackedScene" uid="uid://85agp2h2jklw" path="res://Scenes/Objects/Spawners/coin_spawner.tscn" id="5_u2xbm"]
-[ext_resource type="PackedScene" uid="uid://tqkmivib7yri" path="res://Scenes/Enemy Scenes/Enemy Ships/Epsilon/epsilon.tscn" id="6_u6nls"]
-[ext_resource type="PackedScene" uid="uid://dego762iape1t" path="res://Scenes/Objects/Navigation/ultra_nav.tscn" id="7_gmqwb"]
+[ext_resource type="PackedScene" uid="uid://0xmd6qboruph" path="res://Scenes/Objects/Docks/blue_dock.tscn" id="5_ut28g"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wdhkf"]
 vertices = PackedVector2Array(-968, 470, -969, 470, -968, 454, 650, 129, 650, 138, 649, 159, -968, 422, -969, 422, -968, 406, 649, 113, 650, 81, 650, 90, 649, 111, -968, 374, -969, 374, -968, 358, 649, 65, 650, 33, 650, 42, 649, 63, -968, 326, -969, 326, -968, 310, 649, 17, 650, -15, 650, -5, 649, 15, -968, 278, -969, 278, -968, 262, 649, -31, 650, -63, 650, -53, 649, -33, -968, 230, -969, 230, -968, 214, 649, -79, 650, -111, 650, -101, 649, -81, -968, 182, -969, 182, -968, 166, 649, -127, 650, -159, 650, -149, 649, -129, -968, 134, -969, 134, -968, 118, 649, -175, 650, -207, 650, -197, 649, -177, -968, 86, -969, 86, -968, 70, 649, -223, 650, -255, 650, -245, 649, -225, -968, 38, -969, 38, -968, 22, 649, -271, 650, -303, 650, -293, 649, -273, -968, -10, -969, -10, -968, -26, 649, -319, 650, -351, 650, -341, 649, -321, -968, -58, -969, -58, -968, -74, 649, -367, 650, -399, 650, -389, 649, -369, -968, -106, -969, -106, -968, -122, 649, -415, 650, -447, 650, -437, 649, -417, -968, -154, -969, -154, -968, -170, 649, -463, 650, -495, 650, -485, 649, -465, -968, -202, -969, -202, -968, -218, 649, -511, 597, -585, 630, -583, 648, -566, 649, -559, 650, -543, 650, -533, 649, -513, -968, -250, -969, -250, -968, -266, 566, -583, -968, -298, -969, -298, -968, -314, -778, -583, -968, -346, -969, -346, -968, -362, -842, -583, -810, -585, -778, -585, -968, -394, -969, -394, -968, -410, -874, -585, -842, -585, -968, -442, -969, -442, -968, -458, -906, -583, -968, -490, -969, -490, -968, -506, -938, -585, -906, -585, -968, -538, -969, -538, -968, -554, 649, -584, 649, -582, -746, -585, -714, -585, -714, -583, -970, -266, -970, -271, -682, -585, -650, -585, -650, -583, -618, -585, -586, -585, -586, -583, -554, -585, -522, -585, -522, -583, -490, -585, -458, -585, -458, -583, -426, -585, -394, -585, -394, -583, -362, -585, -330, -585, -330, -583, -298, -585, -266, -585, -266, -583, -234, -585, -202, -585, -202, -583, -170, -585, -138, -585, -138, -583, -106, -585, -74, -585, -74, -583, -42, -585, -10, -585, -10, -583, 21, -585, 54, -585, 54, -583, 85, -585, 118, -585, 118, -583, 149, -585, 182, -585, 182, -583, 213, -585, 246, -585, 246, -583, 277, -585, 310, -585, 310, -583, 341, -585, 374, -585, 374, -583, 405, -585, 438, -585, 438, -583, 469, -585, 502, -585, 502, -583, 533, -585, 566, -585, 630, -585, 649, -566, 649, 495, 649, 502, -970, 502, -970, 497, -970, 454, -970, 449, 649, 161, -970, 406, -970, 401, -970, 358, -970, 353, -970, 310, -970, 305, -970, 262, -970, 257, -970, 214, -970, 209, -970, 166, -970, 161, -970, 118, -970, 113, -970, 70, -970, 65, -970, 22, -970, 17, -970, -26, -970, -31, -970, -74, -970, -79, -970, -122, -970, -127, -970, -170, -970, -175, -970, -218, -970, -223, -970, -314, -970, -319, -970, -362, -970, -367, -970, -410, -970, -415, -970, -458, -970, -463, -970, -506, -970, -511, -970, -554, -970, -559, -968, -583, 650, 465, 650, 474, 649, 449, 649, 447, 650, 417, 650, 426, 649, 401, 649, 399, 650, 369, 650, 378, 649, 353, 649, 351, 650, 321, 650, 330, 649, 305, 649, 303, 650, 273, 650, 282, 649, 257, 649, 255, 650, 225, 650, 234, 649, 209, 649, 207, 650, 177, 650, 186, 778, 634, 811, 665, -1119, 665, -1098, 634, -1112, -731, -1098, -714, 792, -756, 778, -714)
@@ -229,28 +228,11 @@ layer_0/tile_data = PackedInt32Array(-1572918, 327682, 6, -1507382, 327682, 6, -
 [node name="PlayerCarAlpha" parent="." instance=ExtResource("1_irglr")]
 position = Vector2(-226, 25)
 
-[node name="EnemyCarDelta" parent="." instance=ExtResource("4_0i5oh")]
-position = Vector2(-153, 25)
-
-[node name="UltraNav" parent="EnemyCarDelta" instance=ExtResource("7_gmqwb")]
-navigation_layers = 3
-debug_enabled = true
-
-[node name="EnemyCarDelta2" parent="." instance=ExtResource("4_0i5oh")]
-position = Vector2(-425, -12)
-
-[node name="UltraNav" parent="EnemyCarDelta2" instance=ExtResource("7_gmqwb")]
-navigation_layers = 3
-debug_enabled = true
-
-[node name="EnemyCarDelta3" parent="." instance=ExtResource("4_0i5oh")]
-position = Vector2(-59, -244)
-
-[node name="UltraNav" parent="EnemyCarDelta3" instance=ExtResource("7_gmqwb")]
-navigation_layers = 3
-debug_enabled = true
+[node name="BlueDock" parent="." instance=ExtResource("5_ut28g")]
+position = Vector2(519, 411)
 
 [node name="Coin Spawner" parent="." instance=ExtResource("5_u2xbm")]
+position = Vector2(-142, -143)
 
-[node name="Epsilon" parent="." instance=ExtResource("6_u6nls")]
-position = Vector2(-217, -41)
+[node name="BrownDock" parent="." instance=ExtResource("5_osmdg")]
+position = Vector2(-915, -508)

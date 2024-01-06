@@ -6,7 +6,7 @@ extends RigidBody2D
 @onready var stats : Node2D = $Stats
 
 var score : int = 0
-
+var my_team : String = "Team-A"
 # Ship properties
 var thrust : float
 var reverse_thrust : float
@@ -16,6 +16,7 @@ var rotation_speed : float
 
 
 func _ready():
+	add_to_group(my_team)
 	set_ship_mass()
 	
 	

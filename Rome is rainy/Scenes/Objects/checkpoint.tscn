@@ -6,8 +6,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ieb60"]
 radius = 4.12311
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkvv6"]
-size = Vector2(78, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ue7yl"]
+radius = 7.0
 
 [node name="Checkpoint" type="RigidBody2D" groups=["checkpoint"]]
 script = ExtResource("1_1e7lr")
@@ -23,8 +23,11 @@ texture = ExtResource("2_8a176")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_nkvv6")
+shape = SubResource("CircleShape2D_ue7yl")
+
+[node name="DeathTimer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

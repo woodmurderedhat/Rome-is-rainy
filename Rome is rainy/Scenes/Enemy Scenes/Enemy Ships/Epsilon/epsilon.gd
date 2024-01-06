@@ -5,6 +5,10 @@ var stats_scene : PackedScene = load("res://Scenes/Objects/Stats/stats.tscn")
 var particles_scene : PackedScene = load("res://Scenes/Objects/ParticleEffects/basic_ship_particle_effects.tscn")
 var brain_scene : PackedScene = load("res://Scenes/Objects/ArtificialIntellects/epsilon_brain.tscn")
 
+var my_dock : RigidBody2D
+var my_team : String
+var enemy_team_alpha : String = "Team-B"
+var enemy_team_beta : String = "Team-C"
 @onready var ignition : Node2D
 @onready var brain : Node2D
 @onready var stats : Node2D
@@ -16,6 +20,7 @@ var brake_thrust : float
 var rotation_speed : float
 
 func _ready():
+	
 	make_scene()
 
 func _process(_delta: float) -> void:
@@ -29,13 +34,17 @@ func _make_scene() -> void:
 	var stats_instance : Node2D = stats_scene.instantiate()
 	var particles_instance : Node2D = particles_scene.instantiate()
 	var brain_instance : Node2D = brain_scene.instantiate()
+
 		# Add the stats to the scene
 	add_child(stats_instance)
 	add_child(particles_instance)
+
 	add_child(brain_instance)
+	
 	stats = stats_instance
 	brain = brain_instance
 	ignition = particles_instance
+
 	set_ship_mass()
 
 func set_speed():

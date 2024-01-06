@@ -31,6 +31,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if baggage >= max_baggage:
+		if parent is Epsilon:
+			parent.brain.state = parent.brain.STATES.RETURNING
+		else:
+			return
+	else:
+		return
 	xelta = delta
 
 func level_up():
@@ -76,8 +83,13 @@ func add_health_exp(amount : int):
 
 func apply_hit_forces(thrust : Vector2, delta : float):
 	parent.apply_thrust(thrust, delta)
-
+ 
+func apply_damage(damage: float):
+	if health > 0:
+		health -= damage
 func _on_hitbox_body_entered(body):
 	if body is RigidBody2D:
-		var hit_force = (-body.linear_velocity - parent.linear_velocity).normalized()
+		var hit_force = ((-body.linear_velocity * body.mass) - parent.linear_velocity).normalized()
 		apply_hit_forces(hit_force, xelta)
+		if body.has_method("damage"):
+			apply_damage(body.damage)

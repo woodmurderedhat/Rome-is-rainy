@@ -7,8 +7,8 @@ var point_target
 func _ready():
 	pass
 
-func _physics_process(delta):
-	parent.check_actions(delta)
+func _physics_process(_delta):
+	pass
 
 func set_entity_target(target):
 	await get_tree().physics_frame
@@ -22,4 +22,5 @@ func get_target():
 		return
 	var next_path_position = get_next_path_position()
 	point_target = next_path_position
+	parent.has_target = true
 

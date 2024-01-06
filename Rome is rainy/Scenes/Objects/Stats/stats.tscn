@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://chrah5ampsxwp"]
+[gd_scene load_steps=4 format=3 uid="uid://chrah5ampsxwp"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/Stats/stats.gd" id="1_rp7co"]
+[ext_resource type="PackedScene" uid="uid://n24sa1nydt6s" path="res://Scenes/UI/progress_bar.tscn" id="2_byixl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cmvwe"]
 size = Vector2(14, 34)
@@ -12,5 +13,9 @@ script = ExtResource("1_rp7co")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_cmvwe")
+
+[node name="ProgressBar" parent="." instance=ExtResource("2_byixl")]
+offset_left = -2.0
+offset_right = 2.0
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
